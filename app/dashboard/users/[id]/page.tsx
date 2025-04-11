@@ -1,7 +1,8 @@
 
-const Page = () => {
+const Page = async ({params}:{id: string}) => {
+    const { id } = await params;
     return (
-        <div> User details page</div>
+        <h1 className="text-3xl"> User Profile:{id} </h1>
     )
 }
 
