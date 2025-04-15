@@ -136,11 +136,11 @@ body {
   }
 
   .search-input {
-    @apply flex-1 font-bold placeholder:font-semibold w-full h-auto outline-none;
+    @apply flex-1 font-bold placeholder:font-semibold w-full h-auto outline-none text-black;
   }
 
   .search-btn {
-    @apply size-[50px] rounded-full bg-black flex justify-center items-center  !flex;
+    @apply size-[50px] rounded-full bg-black flex justify-center items-center hover:bg-gray-800 transition text-white;
   }
 
   /* startupcard */
