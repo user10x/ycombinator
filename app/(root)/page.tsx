@@ -16,7 +16,7 @@ export default async function Home({searchParams}: { searchParams: Promise<{quer
                 name: 'John Doe',
             },
             _id: 1,
-            live_image: 'https://images.unsplash.com/photo-1634912314704-c646c586b131?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0',
+            image: 'https://images.unsplash.com/photo-1634912314704-c646c586b131?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0',
             category: 'Robots',
             description: 'This is a lengthy description',
             title: 'We robots',
