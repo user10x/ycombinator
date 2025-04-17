@@ -21,6 +21,8 @@ interface StartupCardType {
 
 }
 
+
+
 const StartupCardType = ({post}: {post: StartupCardType}) => {
 
     const {createdAt, _id, author :{_id: authorId, name}, title, number_of_views, description, image, category} = post;
