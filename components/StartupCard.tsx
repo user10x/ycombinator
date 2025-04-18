@@ -4,37 +4,26 @@ import {EyeIcon} from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import {Button} from "@/components/ui/button";
+import {Startup, Author} from "@/sanity/types";
 
-interface StartupCardType {
-    _id: string;
-    title: string;
-    number_of_views: number;
-    author: {
-        name: string;
-        _id: string;
-    }
-    createdAt: string;
-    name: string;
-    description: string;
-    image: string;
-    category: string;
 
-}
+export type StartupTypeCard = Omit<Startup, "author"> & { author?: Author };
+
+
+const StartupCardType = ({ post }: {post: StartupTypeCard}) => {
 
 
 
-const StartupCardType = ({post}: {post: StartupCardType}) => {
+    const {_createdAt, _id, author, title, views, description, image, category} = post;
 
-    const {createdAt, _id, author :{_id: authorId, name}, title, number_of_views, description, image, category} = post;
-
-    console.log(createdAt);
+    console.log(_createdAt);
 
     console.log(_id);
 
-    console.log(authorId);
+    console.log(author?._id);
+    console.log(author?.name);
     console.log(title);
-    console.log(name);
-    console.log(number_of_views);
+    console.log(views);
 
 
 
@@ -43,24 +32,24 @@ const StartupCardType = ({post}: {post: StartupCardType}) => {
         <li className="startup-card p-4 rounded-xl border bg-white shadow-sm flex flex-col gap-4">
             {/* Top row: Date + Views */}
             <div className="flex justify-between items-center text-sm text-gray-500">
-                <p>{formatDate(createdAt)}</p>
+                <p>{formatDate(_createdAt)}</p>
                 <div className="flex items-center gap-2">
                     <EyeIcon className="size-5 text-primary" />
-                    <span>{number_of_views}</span>
+                    <span>{views}</span>
                 </div>
             </div>
 
             {/* Middle section: Author, Title, Avatar */}
             <div className="flex items-center justify-between gap-4">
                 <div className="flex-1 overflow-hidden">
-                    <Link href={`/user/${authorId}`}>
-                        <p className="truncate text-sm font-medium text-gray-700 hover:underline">{name}</p>
+                    <Link href={`/user/${author?.id}`}>
+                        <p className="truncate text-sm font-medium text-gray-700 hover:underline">{author?.name}</p>
                     </Link>
                     <Link href={`/startup/${_id}`}>
                         <h3 className="font-bold text-lg truncate hover:text-primary">{title}</h3>
                     </Link>
                 </div>
-                <Link href={`/user/${authorId}`}>
+                <Link href={`/user/${author?.id}`}>
                     <Image
                         alt="profile"
                         src="https://placehold.co/48x48"
