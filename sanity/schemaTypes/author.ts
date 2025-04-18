@@ -1,7 +1,7 @@
 import {defineType, defineField, defineArrayMember} from "sanity";
 import {UserIcon} from "lucide-react";
 
-export const product = defineType({
+export const author = defineType({
     name: "author",
     type: "document",
     title: "Author",
