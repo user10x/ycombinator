@@ -1,7 +1,7 @@
 import { defineQuery } from "next-sanity";
 
 export const STARTUPS_QUERY =
-    defineQuery(`*[_type == "startup" && defined(slug.current) ] | order(_createdAt desc) {
+  defineQuery(`*[_type == "startup" && defined(slug.current) ] | order(_createdAt desc) {
   _id,  
   title, 
   slug,
@@ -13,5 +13,7 @@ export const STARTUPS_QUERY =
   description,
   category,
   image,
-}
-    `);
+}`);
+
+
+

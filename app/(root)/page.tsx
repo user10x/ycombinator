@@ -1,15 +1,23 @@
 import SearchForm from "@/components/SearchComponent";
-import StartupCard from "@/components/StartupCard";
-import {client} from "@/sanity/lib/client";
-import {STARTUPS_QUERY} from "@/sanity/lib/queries";
-import StartupCardType from "@/components/StartupCard";
+import StartupCard, { StartupTypeCard } from "@/components/StartupCard";
+import { client } from "@/sanity/lib/client";
 
 
 
-export default async function Home({searchParams}: { searchParams: Promise<{query?: string}>}) {
+
+export default async function Home({ searchParams }: { searchParams: Promise<{ query?: string }> }) {
 
     const query = (await searchParams).query;
+
+
+
+
+
+    console.log("query is ", query);
+
+
     const posts = await client.fetch(STARTUPS_QUERY);
+
 
     console.log(JSON.stringify(posts, null, 2));
 
@@ -40,14 +48,14 @@ export default async function Home({searchParams}: { searchParams: Promise<{quer
             </section>
             <section className="section_container">
                 <p className="subheading font-semibold">
-                    {query? `Search results for ${query}`:"All startups"}
+                    {query ? `Search results for ${query}` : "All startups"}
                 </p>
                 <ul className="list">
-                    {posts?.length >0 ?(
-                        posts.map( (post: StartupCardType) => (
-                            <StartupCard key={post?._id} post={post}/>
+                    {posts?.length > 0 ? (
+                        posts.map((post: StartupTypeCard) => (
+                            <StartupCard key={post?._id} post={post} />
                         ))
-                    ):<p> No startups found</p>}
+                    ) : <p> No startups found</p>}
                 </ul>
             </section>
         </div>

@@ -1,29 +1,29 @@
 
-import {formatDate} from "@/lib/utils";
-import {EyeIcon} from "lucide-react";
+import { formatDate } from "@/lib/utils";
+import { EyeIcon } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import {Button} from "@/components/ui/button";
-import {Startup, Author} from "@/sanity/types";
+import { Button } from "@/components/ui/button";
+import { Startup, Author } from "@/sanity/types";
 
 
 export type StartupTypeCard = Omit<Startup, "author"> & { author?: Author };
 
 
-const StartupCardType = ({ post }: {post: StartupTypeCard}) => {
+const StartupCardType = ({ post }: { post: StartupTypeCard }) => {
 
 
 
-    const {_createdAt, _id, author, title, views, description, image, category} = post;
+    const { _createdAt, _id, author, title, views, description, image, category } = post;
 
-    console.log(_createdAt);
+    // console.log(_createdAt);
 
-    console.log(_id);
+    // console.log(_id);
 
-    console.log(author?._id);
-    console.log(author?.name);
-    console.log(title);
-    console.log(views);
+    // console.log(author?._id);
+    // console.log(author?.name);
+    // console.log(title);
+    // console.log(views);
 
 
 
